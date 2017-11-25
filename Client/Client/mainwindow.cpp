@@ -8,6 +8,7 @@
 #include <boost/asio.hpp>
 
 std::vector<std::string> client_files;
+std::vector<std::string> all_files;
 
 boost::asio::io_service service;
 
@@ -26,28 +27,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    std::string server;
-
-    try
-        {
-           std::vector<std::string> ipport;
-           split(ipport,ui->lineEdit->text().toStdString());
-           std::string ip=ipport[0];
-           int port= atoi(ipport[1]);
-           TalkToServer talk(ip,port,service);
-           talk.connect();
-           talk.sendFile("test.txt");
-        }
-        catch(std::exception& ex){
-            std::cerr << "Exception: " << ex.what() << std::endl;
-        }
+    getFileList(client_files);
+    std::vector<std::string> ipport;
+    split(ipport,ui->lineEdit->text().toStdString());
+    std::string ip=ipport[0];
+    int port= atoi(ipport[1].c_str());
+    TalkToServer talk(ip,port,service);
+    talk.connect();
+    talk.sendFileList(client_files,all_files);
+    for(int i=0;i<all_files.size();i++)
+        ui->textEdit->append(all_files[i].c_str());
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
- getFileList(client_files);
- for(int i=0;i<client_files.size();i++)
-     ui->textEdit->append(client_files[i].c_str());
+
 }
 
 void MainWindow::on_pushButton_3_clicked()

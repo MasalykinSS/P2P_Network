@@ -19,6 +19,8 @@ class TalkToServer
     int port;
     std::string ip_address;
     tcp::socket sock;
+    tcp::socket acc_sock;
+    tcp::acceptor acc;
     boost::system::error_code ec;
 
    public:
@@ -26,6 +28,8 @@ class TalkToServer
     ~TalkToServer();
     void connect();
     void sendFile(const std::string&);
+    void sendFileList(const std::vector<std::string>&,std::vector<std::string>&);
+    void acceptFile();
 };
 
 #endif // CLIENT_FUNC_H

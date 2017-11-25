@@ -12,6 +12,20 @@
 
 namespace bfs = boost::filesystem;
 
+bool vector_find(const std::vector<std::string>& vec,const std::string& elem)
+{
+    bool flag = false;
+    for(int i = 0;i<vec.size();i++)
+    {
+        if(vec[i]==elem)
+        {
+            flag = true;
+            break;
+        }
+    }
+    return flag;
+}
+
 void getFileList(std::vector<std::string>& filenames)
 {
     filenames.clear();
