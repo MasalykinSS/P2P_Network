@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -34,6 +35,10 @@ public:
     QTextEdit *textEdit;
     QPushButton *pushButton_3;
     QLineEdit *lineEdit;
+    QLabel *label;
+    QPushButton *pushButton_4;
+    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_3;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -42,24 +47,40 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(602, 423);
+        MainWindow->resize(602, 575);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(20, 20, 75, 23));
+        pushButton->setGeometry(QRect(150, 10, 75, 23));
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(20, 160, 75, 23));
+        pushButton_2->setGeometry(QRect(520, 40, 75, 23));
         textEdit = new QTextEdit(centralWidget);
         textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(310, 10, 261, 331));
+        textEdit->setGeometry(QRect(10, 100, 581, 331));
+        textEdit->setReadOnly(true);
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(20, 130, 75, 23));
+        pushButton_3->setGeometry(QRect(520, 70, 75, 23));
         lineEdit = new QLineEdit(centralWidget);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(110, 20, 161, 20));
+        lineEdit->setGeometry(QRect(10, 10, 131, 20));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 430, 221, 41));
+        QFont font;
+        font.setPointSize(16);
+        label->setFont(font);
+        pushButton_4 = new QPushButton(centralWidget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setGeometry(QRect(520, 490, 75, 23));
+        lineEdit_2 = new QLineEdit(centralWidget);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(10, 40, 131, 20));
+        lineEdit_3 = new QLineEdit(centralWidget);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(10, 70, 501, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -81,9 +102,12 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         pushButton->setText(QApplication::translate("MainWindow", "connect", 0));
-        pushButton_2->setText(QApplication::translate("MainWindow", "files", 0));
-        pushButton_3->setText(QApplication::translate("MainWindow", "ip", 0));
-        lineEdit->setText(QApplication::translate("MainWindow", "127.0.0.1:9090", 0));
+        pushButton_2->setText(QApplication::translate("MainWindow", "refresh", 0));
+        pushButton_3->setText(QApplication::translate("MainWindow", "send me file", 0));
+        lineEdit->setText(QApplication::translate("MainWindow", "192.168.0.106:9090", 0));
+        label->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        pushButton_4->setText(QString());
+        lineEdit_2->setText(QApplication::translate("MainWindow", "192.168.0.105", 0));
     } // retranslateUi
 
 };

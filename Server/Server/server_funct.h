@@ -26,4 +26,6 @@ public:
     void sendFileList(const std::vector<std::string>& files);
 };
 
+void split(std::vector<std::string>&, std::string);
+
 #endif // SERVER_FUNCT_H

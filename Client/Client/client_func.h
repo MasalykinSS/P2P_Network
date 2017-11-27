@@ -23,13 +23,22 @@ class TalkToServer
     tcp::acceptor acc;
     boost::system::error_code ec;
 
+    tcp::socket listener;
+    tcp::socket sender;
+    tcp::acceptor acceptor_ ;
+
    public:
+
     TalkToServer(const std::string&,const int&,boost::asio::io_service&);
     ~TalkToServer();
-    void connect();
-    void sendFile(const std::string&);
-    void sendFileList(const std::vector<std::string>&,std::vector<std::string>&);
+    bool connect();
+    //void sendFile(const std::string&);
+    void sendFileList(const std::vector<std::string>&,std::vector<std::string>&,const std::string&);
     void acceptFile();
+    //void listenLoop();
+    void doLoop();
 };
+
+void listenLoop(boost::asio::io_service&);
 
 #endif // CLIENT_FUNC_H
